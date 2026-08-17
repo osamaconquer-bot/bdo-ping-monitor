@@ -217,8 +217,6 @@ async function pingAllServers() {
     
     const globalStatusDot = document.querySelector('#global-status .status-dot');
     const globalStatusText = document.querySelector('#global-status .status-text');
-    globalStatusDot.className = 'status-dot status-checking';
-    globalStatusText.textContent = 'Measuring';
 
     await Promise.all([
         pingServer('main'),

@@ -1,0 +1,28 @@
+name: Build Windows EXE
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Download source
+        uses: actions/checkout@v4
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Build BDO Ping Monitor
+        working-directory: src-tauri
+        run: cargo build --release
+
+      - name: Save EXE
+        uses: actions/upload-artifact@v4
+        with:
+          name: BDO-Ping-Monitor-English-1-Second
+          path: src-tauri/target/release/bdo-ping-monitor.exe

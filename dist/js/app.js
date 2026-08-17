@@ -237,7 +237,7 @@ async function pingAllServers() {
 function manualPing() {
     if (updateInterval) {
         clearInterval(updateInterval);
-        updateInterval = setInterval(pingAllServers, 5000);
+        updateInterval = setInterval(pingAllServers, 1000);
     }
     pingAllServers();
 }
@@ -254,7 +254,7 @@ async function init() {
     await loadServers();
     updateDisplay();
     pingAllServers();
-    updateInterval = setInterval(pingAllServers, 5000);
+    updateInterval = setInterval(pingAllServers, 1000);
 }
 
 // Wait a brief moment for Tauri API to inject

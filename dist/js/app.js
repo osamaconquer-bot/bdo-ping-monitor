@@ -182,9 +182,6 @@ async function pingServer(id) {
     const data = state[id];
     if (!data.config || !invoke) return;
 
-    data.status = 'checking';
-    updateServerUI(id, data);
-
     try {
         const result = await invoke('measure_ping', {
             ip: data.config.ip,
@@ -214,9 +211,6 @@ async function pingServer(id) {
 async function pingAllServers() {
     const btn = document.getElementById('btn-refresh');
     btn.classList.add('measuring');
-    
-    const globalStatusDot = document.querySelector('#global-status .status-dot');
-    const globalStatusText = document.querySelector('#global-status .status-text');
 
     await Promise.all([
         pingServer('main'),
@@ -224,12 +218,9 @@ async function pingAllServers() {
     ]);
 
     btn.classList.remove('measuring');
-    
+
     const now = new Date();
     document.getElementById('last-update').textContent = `Last update: ${now.toLocaleTimeString()}`;
-    
-    globalStatusDot.className = 'status-dot status-online';
-    globalStatusText.textContent = 'Active';
 }
 
 function manualPing() {

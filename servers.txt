@@ -1,9 +1,9 @@
-# 黒い砂漠 カスタムサーバーリスト
-# ルール: 
-# ・1行目に書いたサーバーが上の「Main（メイン）」に表示されます。
-# ・2行目以降に書いたサーバーが下の「Sub（サブ）」のドロップダウンに表示されます。
-# ・何も書かない場合はデフォルトで日本のマルニ2chが設定されます。
-# 書式: サーバー名:IPアドレス
+# Black Desert Online Custom Server List
+# Rules:
+# - The server on the first line is displayed as "Main".
+# - Servers on the second line and below are displayed in the "Sub" dropdown.
+# - If no servers are specified, Japan Marni Channel 2 is used by default.
+# Format: Server Name:IP Address
 
 malni-2ch: 20.222.139.220
 Valencia-2ch: 172.207.217.188
